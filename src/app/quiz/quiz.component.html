@@ -1,0 +1,39 @@
+<button routerLink="/select-quiz" routerLinkActive="active" class="back-button">🏠</button>
+<h3>{{title}}</h3>
+
+<div class="quiz-submit" *ngIf="quizSubmitted">
+    <h2>Correct answers : {{correctCount}} / 10</h2>
+    <button routerLink="/select-quiz" routerLinkActive="active" class="back-button">Select another category</button>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th colspan="3">Questions</th>
+            <ng-container *ngIf="quizSubmitted">
+                <th>Answers</th>
+            </ng-container>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let question of quizData; let i = index">
+            <td class="question-text">{{ question.question }}</td>
+            <td>
+                <label>
+                    <input type="radio" [id]="'answer-' + i + '-true'" [name]="'answer-' + i" value="True"
+                        (click)="checkAnswer(i, 'True')"> True
+                </label>
+            </td>
+            <td>
+                <label>
+                    <input type="radio" [id]="'answer-' + i + '-false'" [name]="'answer-' + i" value="False"
+                        (click)="checkAnswer(i, 'False')"> False
+                </label>
+            </td>
+            <ng-container *ngIf="quizSubmitted">
+                <td>{{ selectedAnswers[i] === quizData[i].correct_answer ? '✔️' : '❌' }}</td>
+            </ng-container>
+        </tr>
+    </tbody>
+</table>
+<button class="quiz-button" (click)="validateQuiz()">Validate</button>

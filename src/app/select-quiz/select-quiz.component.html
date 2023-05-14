@@ -1,0 +1,12 @@
+<h1>{{title}}</h1>
+
+<h2>Choose a quiz category</h2>
+
+<div class="list-button-box">
+    <button *ngFor="let titre of titles" class="menu-button" routerLink="/quiz/{{titre.category}}"
+        routerLinkActive="active">{{titre.category}} {{titre.icon}}</button>
+</div>
+
+<footer>
+    <span>Do your best</span>
+</footer>
