@@ -1,6 +1,6 @@
 # QuizApp
 
-This project was made with Angular and utilizes the TriviaDB API. A collaboration between Asutorizu, Cpck, and myself.
+This project was made with Angular and utilizes the TriviaDB API. A collaboration between Asutorizu, Cpck, Gawele and myself.
 
 ## Development server
 
